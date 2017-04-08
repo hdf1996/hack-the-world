@@ -36,14 +36,14 @@ class BarView extends React.Component {
   }
 
   startPolling = () => {
-    // this.poll(true);
-    // let timeout = setInterval(
-    //   () => {
-    //     this.poll();
-    //   },
-    //   10000
-    // );
-    // this.setState({ timeout: timeout });
+    this.poll(true);
+    let timeout = setInterval(
+      () => {
+        this.poll();
+      },
+      60000
+    );
+    this.setState({ timeout: timeout });
   };
 
   poll = (initial = false) => {
@@ -66,13 +66,13 @@ class BarView extends React.Component {
   };
   render() {
     let { images, total } = this.state.data;
+
     return (
       <div className="bar-view">
         <div className="row">
           <div className="counter-info-container col-xs-9">
-            <CounterInfo barId={this.props.match.params.barId} total={total} />
             <CounterProgress progress={total} />
-            <CounterInfo />
+            <CounterInfo barId={this.props.match.params.barId} total={total} />
           </div>
           <div className="hashtag-feed-container col-xs-3">
             <HashtagFeed newImages={images} />
