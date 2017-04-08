@@ -8,8 +8,8 @@ const BarView = ({ match, images, total }) => (
     {/*<h3>Bar ID: {match.params.barId}</h3>*/}
     {/*{images.map((v, i) => <p key={i}>{v.url}</p>)}*/}
     {/*<h3>total: {total}</h3>*/}
-    <Counter />
-    <HashtagFeed />
+    <Counter total={total} />
+    <HashtagFeed images={images} />
   </div>
 );
 

@@ -1,9 +1,12 @@
-import React from 'react';
-import './index.css';
+import React from "react";
+import ImageCard from "../ImageCard";
+import "./index.css";
 
-const HashtagFeed = () =>
-  <div className="hashtag-feed">
-    Hashtag Feed
-  </div>;
-
+const HashtagFeed = ({ images }) => {
+  return (
+    <div className="hashtag-feed">
+      {images.map((image, i) => <ImageCard key={i} url={image.url} />)}
+    </div>
+  );
+};
 export default HashtagFeed;

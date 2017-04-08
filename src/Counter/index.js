@@ -1,9 +1,9 @@
 import React from 'react';
 import './index.css';
 
-const Counter = () =>
+const Counter = ({total}) =>
   <div className="counter">
-    Counter
+    Counter: {total}
   </div>;
 
 export default Counter;

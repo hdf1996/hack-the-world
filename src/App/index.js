@@ -8,30 +8,41 @@ class App extends Component {
     super(props);
     this.state = {
       data: {
-        images: ['asd', 'qwe'],
-        total: 10
+        total: 0.5,
+        images: [
+          {
+            type: "share",
+            social_network: "instagram",
+            url: "https://robohash.org/perferendisdoloret.png?size=300x300&set=set1"
+          },
+          {
+            type: "share",
+            social_network: "instagram",
+            url: "https://robohash.org/perferendisdoloret.png?size=300x300&set=set1"
+          }
+        ]
       }
     };
   }
 
-  componentWillMount() {
-    this.startPolling();
-  }
+  // componentWillMount() {
+  //   this.startPolling();
+  // }
 
-  componentWillUnmount() {
-    clearTimeout(this.state.timeout);
-  }
+  // componentWillUnmount() {
+  // clearTimeout(this.state.timeout);
+  // }
 
-  startPolling = () => {
-    this.poll();
-    let timeout = setInterval(
-      () => {
-        this.poll();
-      },
-      5000
-    );
-    this.setState({ timeout: timeout });
-  };
+  // startPolling = () => {
+  // this.poll();
+  // let timeout = setInterval(
+  //   () => {
+  //     this.poll();
+  //   },
+  //   5000
+  // );
+  // this.setState({ timeout: timeout });
+  // };
 
   poll = () => {
     let url = "https://crossorigin.me/https://hacktheworldapi.herokuapp.com/api/v1/counters/1";
