@@ -62,7 +62,8 @@ class BarView extends React.Component {
       <div className="bar-view">
         <div className="row">
           <div className="counter-info-container col-xs-9">
-            <CounterInfo total={total} />
+            <CounterProgress progress={total} />
+            <CounterInfo />
           </div>
           <div className="hashtag-feed-container col-xs-3">
             <HashtagFeed images={images} />

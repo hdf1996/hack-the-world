@@ -6,6 +6,7 @@
   align-items: center;
   justify-content: center;
   position: relative;
+  z-index: 1;
 }
 
 .counter-info .logo-container {
@@ -31,6 +32,7 @@
   border-bottom: solid 5px #dfac47;
   transform: skew(0, -5deg);
   align-self: center;
+  mix-blend-mode: difference;
 }
 
 .counter-info .description {
@@ -45,4 +47,5 @@
   font-weight: 700;
   color: #DFAC47;
   display: block;
+  mix-blend-mode: difference;
 }
