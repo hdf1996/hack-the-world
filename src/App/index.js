@@ -43,7 +43,7 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Route path="/1" component={BarView} />
+           <Route path="/:barId" component={BarView}/>
         </div>
       </Router>
     );
