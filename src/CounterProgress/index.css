@@ -29,6 +29,7 @@
   left: 0;
   background: #FEB006;
   transform: translate(0, 50%);
+  transition: all 0.75s;
 }
 
 .water__inner {
@@ -38,6 +39,7 @@
   top: 0;
   left: 0;
   overflow: hidden;
+  transition: all 0.75s;
 }
 
 .water__wave {

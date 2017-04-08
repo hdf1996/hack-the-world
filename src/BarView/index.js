@@ -9,6 +9,7 @@ class BarView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      testProgress: 0,
       data: {
         total: 0.5,
         images: [
@@ -25,14 +26,23 @@ class BarView extends React.Component {
         ]
       }
     };
+
+    this.addTestProgress = this.addTestProgress.bind(this);
+    setInterval(this.addTestProgress, 1000);
   }
 
-  componentWillMount() {
-    this.startPolling();
+  addTestProgress() {
+    this.setState(prevState => ({
+      testProgress: prevState.testProgress + 0.1
+    }));
   }
 
   componentWillUnmount() {
     clearTimeout(this.state.timeout);
+  }
+
+  componentWillMount() {
+    this.startPolling();
   }
 
   startPolling = () => {
@@ -71,8 +81,8 @@ class BarView extends React.Component {
       <div className="bar-view">
         <div className="row">
           <div className="counter-info-container col-xs-9">
-            <CounterProgress progress={total} />
-            <CounterInfo barId={this.props.match.params.barId} total={total} />
+            <CounterProgress progress={this.state.testProgress} />
+            <CounterInfo barId={this.props.match.params.barId} />
           </div>
           <div className="hashtag-feed-container col-xs-3">
             <HashtagFeed newImages={images} />
