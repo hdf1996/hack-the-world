@@ -9,6 +9,6 @@ class InstagramService
   end
 
   def access_token
-    @access_token ||= 
+    @access_token ||= "test"
   end
 end
