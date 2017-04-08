@@ -1,7 +1,15 @@
-["Distrito arcos", "Callao y Viamonte", "Paraguay y Riobamba"].each do |name|
-  Pub.first_or_create(
-    name: name
-  )
+[
+  {
+    name: "Distrito arcos", 
+  },
+  {
+    name: "Callao y Viamonte"
+  }, 
+  {
+    name: "Paraguay y Riobamba" 
+  }
+].each do |params|
+  Pub.first_or_create(params)
 end
 
 {

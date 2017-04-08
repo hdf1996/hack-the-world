@@ -5,7 +5,11 @@ class Pub < ApplicationRecord
     {
       id: id,
       name: name,
-      hashtag: hashtag.name
+      hashtag: hashtag.name,
+      telephone: telephone,
+      direction: direction,
+      latitude: latitude,
+      longitude: longitude
     }
   end
 end
