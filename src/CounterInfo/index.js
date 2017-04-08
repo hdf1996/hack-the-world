@@ -8,7 +8,7 @@ const CounterInfo = ({barId}) =>
       <h1 className="logo-title">Happy Hour</h1>
     </div>
     <p className="description">
-      Envia tu foto con el hashtag <span className="hashtag">#HappyHourPatagonia{barId.charAt(0).toUpperCase()+barId.slice(1)}</span> 
+      Envia tu foto con el hashtag <span className="hashtag">#HappyHourPatagonia{barId}</span> 
       para activar el Happy Hour Patagonia para este refugio por una hora 🍻
     </p>
   </div>;

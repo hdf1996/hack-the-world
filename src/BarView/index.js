@@ -32,18 +32,18 @@ class BarView extends React.Component {
   }
 
   componentWillUnmount() {
-    clearTimeout(this.state.timeout);
+    // clearTimeout(this.state.timeout);
   }
 
   startPolling = () => {
-    this.poll(true);
-    let timeout = setInterval(
-      () => {
-        this.poll();
-      },
-      6000
-    );
-    this.setState({ timeout: timeout });
+    // this.poll(true);
+    // let timeout = setInterval(
+    //   () => {
+    //     this.poll();
+    //   },
+    //   10000
+    // );
+    // this.setState({ timeout: timeout });
   };
 
   poll = (initial = false) => {

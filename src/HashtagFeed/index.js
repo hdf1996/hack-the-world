@@ -6,12 +6,18 @@ class HashtagFeed extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      images: []
+      images: props.newImages
     };
   }
 
   componentWillReceiveProps(props) {
-    this.state.images.push(props.newImages);
+    let maxSize = 20;
+    let len = props.newImages.length
+    if (len >= maxSize) {
+      this.setState({ images: props.newImages });
+    } else {
+      this.setState({ images: this.state.images.slice(len).concat(props.newImages)})
+    }
   }
 
   render() {
