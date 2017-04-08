@@ -1,5 +1,6 @@
 import React from "react";
 import CounterInfo from "../CounterInfo";
+import CounterProgress from "../CounterProgress";
 import HashtagFeed from "../HashtagFeed";
 import axios from "axios";
 import "./index.css";
@@ -69,7 +70,7 @@ class BarView extends React.Component {
         </div>
       </div>
     );
-  };
+  }
 }
 
 export default BarView;
