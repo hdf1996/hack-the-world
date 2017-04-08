@@ -22,6 +22,7 @@ gem 'puma', '~> 3.0'
 gem 'faker'
 gem 'sidekiq'
 gem 'sidekiq-scheduler'
+gem 'httparty'
 
 group :development, :test do
   gem 'pry-rails'
