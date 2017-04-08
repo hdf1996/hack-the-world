@@ -11,12 +11,12 @@ class HashtagFeed extends React.Component {
   }
 
   componentWillReceiveProps(props) {
-    let maxSize = 20;
+    let maxSize = 10;
     let len = props.newImages.length
     if (len >= maxSize) {
       this.setState({ images: props.newImages });
     } else {
-      this.setState({ images: this.state.images.slice(len).concat(props.newImages)})
+      this.setState({ images: this.state.images.slice(maxSize-len).concat(props.newImages)})
     }
   }
 
