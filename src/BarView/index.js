@@ -1,5 +1,6 @@
 import React from "react";
 import CounterInfo from "../CounterInfo";
+import CounterProgress from "../CounterProgress";
 import HashtagFeed from "../HashtagFeed";
 import axios from "axios";
 import "./index.css";
@@ -70,6 +71,8 @@ class BarView extends React.Component {
         <div className="row">
           <div className="counter-info-container col-xs-9">
             <CounterInfo barId={this.props.match.params.barId} total={total} />
+            <CounterProgress progress={total} />
+            <CounterInfo />
           </div>
           <div className="hashtag-feed-container col-xs-3">
             <HashtagFeed newImages={images} />

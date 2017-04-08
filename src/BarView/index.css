@@ -1,5 +1,6 @@
 .bar-view .counter-info-container{
   background-color: rgba(0, 0, 0, 0.95);
+  position: relative;
 }
 
 .bar-view .hashtag-feed-container{
