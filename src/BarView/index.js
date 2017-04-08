@@ -35,7 +35,7 @@ class BarView extends React.Component {
   }
 
   startPolling = () => {
-    this.poll();
+    this.poll(true);
     let timeout = setInterval(
       () => {
         this.poll();
@@ -45,31 +45,39 @@ class BarView extends React.Component {
     this.setState({ timeout: timeout });
   };
 
-  poll = () => {
-    let url = `https://crossorigin.me/https://hacktheworldapi.herokuapp.com/api/v1/counters/${this.props.match.params.barId}`;
+  poll = (initial = false) => {
+    let url;
+    let time = Date.now();
+    if (initial) {
+      url = `https://crossorigin.me/https://hacktheworldapi.herokuapp.com/api/v1/counters/${this.props.match.params.barId}`;
+    } else {
+      url = `https://crossorigin.me/https://hacktheworldapi.herokuapp.com/api/v1/counters/${this.props.match.params.barId}?lastpoll=${time}&id=1`;
+    }
     axios
       .get(url)
       .then(response => {
         console.log(response.data);
-        this.setState({ data: response.data });
+        if (response.data.images.length !== 0) {
+          this.setState({ data: response.data, time: time });
+        }
       })
       .catch(err => console.error(err));
   };
-  render () {
-    let { images, total } = this.state.data
+  render() {
+    let { images, total } = this.state.data;
     return (
       <div className="bar-view">
         <div className="row">
           <div className="counter-info-container col-xs-9">
-            <CounterInfo total={total} />
+            <CounterInfo barId={this.props.match.params.barId} total={total} />
           </div>
           <div className="hashtag-feed-container col-xs-3">
-            <HashtagFeed images={images} />
+            <HashtagFeed newImages={images} />
           </div>
         </div>
       </div>
     );
-  };
+  }
 }
 
 export default BarView;
