@@ -1,16 +1,10 @@
 class Api::V1::CountersController < ApplicationController
   def show 
+    @interactions = Interaction.last(10)
+    @interactions = Interaction.where('created_at >= ?', Time.at(params[:lastpoll].to_i).to_datetime) if params[:lastpoll].present?
     render json: {
       total: 0.5,
-      images: [{
-        type: :share,
-        social_network: [:facebook, :instagram, :twitter].sample,
-        url: [
-           "https://pbs.twimg.com/media/C8Bj3uZXUAAJIJy.jpg:large",
-           "https://pbs.twimg.com/media/C7JacAuWkAQLDCh.jpg:large",
-           "https://pbs.twimg.com/media/Cw6FR8dXgAAeFWf.jpg:large"
-         ].sample,
-      }]
+      images: @interactions
     }
     # render json: {
     #   total: 0.5,
