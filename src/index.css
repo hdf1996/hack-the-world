@@ -2,6 +2,10 @@
     src : url('./assets/fonts/Roboto-Regular.ttf');
     font-family: Roboto;
 }
+@font-face {
+  font-family: 'AmsiPro';
+  src: local('AmsiPro'), url(./fonts/AmsiPro-Bold.ttf) format('ttf');
+}
 
 html,
 body {
@@ -12,10 +16,19 @@ body {
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Playfair Display', serif;
+  color: white;
 }
 
 #root,
 #root > div {
   height: 100%;
+}
+* {
+  box-sizing: border-box;
+}
+
+
+h1, h2, h3, h4, h5 {
+  font-family: 'AmsiPro-Bold', Helvetica, sans-serif;
 }

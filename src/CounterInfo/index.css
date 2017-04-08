@@ -1,0 +1,48 @@
+.counter-info {
+  height: 100vh;
+  padding-top: 40px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.counter-info .logo-container {
+  display: inline-flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+  align-items: center;
+}
+
+.counter-info .logo-image {
+  max-width: 360px;
+  margin-bottom: 20px;
+}
+
+.counter-info .logo-title {
+  letter-spacing: 4px;
+  color: #DFAC47;
+  text-transform: uppercase;
+  margin: 0;
+  font-size: 32px;
+  display: inline-block;
+  border-top: solid 5px #dfac47;
+  border-bottom: solid 5px #dfac47;
+  transform: skew(0, -5deg);
+  align-self: center;
+}
+
+.counter-info .description {
+  font-size: 36px;
+  letter-spacing: 2px;
+  max-width: 680px;
+  line-height: 1.5em;
+  margin: 0;
+}
+
+.counter-info .hashtag {
+  font-weight: 700;
+  color: #DFAC47;
+  display: block;
+}
