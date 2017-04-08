@@ -24,9 +24,9 @@ class InstagramWorker
           social_network: :instagram
         }
         old_interaction = Interaction.find_or_initialize_by(uid: pic["id"]).tap(&:save)
-        Rails.logger.debug "#{old_interaction.inspect}"
+        logger.debug "#{old_interaction.inspect}"
         new_interaction = old_interaction.update(params)
-        Rails.logger.debug "#{new_interaction.inspect}"
+        logger.debug "#{new_interaction.inspect}"
       end
     end
   end
