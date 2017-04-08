@@ -23,8 +23,14 @@ class HashtagFeed extends React.Component {
   render() {
     return (
       <div className="hashtag-feed">
-        {this.state.images.map((image, i) => (
-          <FeedItem key={i} imageUrl={image.url} />
+        {this.state.images.map((feedItem, i) => (
+          <FeedItem
+            key={feedItem.uid}
+            imageUrl={feedItem.image_url}
+            nick={feedItem.nick}
+            time={feedItem.created_at}
+            avatarUrl={feedItem.profile_picture}
+          />
         ))}
       </div>
     );

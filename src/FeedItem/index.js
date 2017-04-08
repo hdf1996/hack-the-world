@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import Moment from 'moment';
 import './index.css';
 
 const FeedItem = ({ imageUrl, nick, avatarUrl, time }) =>
@@ -8,21 +9,20 @@ const FeedItem = ({ imageUrl, nick, avatarUrl, time }) =>
       <img className="avatar" src={avatarUrl} alt={`${nick} avatar`} />
       <div className="info-container">
         <span className="nick">{nick}</span>
-        <span className="time">{time}</span>
+        <span className="time">{Moment(time).fromNow()}</span>
       </div>
     </div>
   </div>;
 
 FeedItem.defaultProps = {
-  nick: 'User nick',
-  time: 'X minutos atras',
   avatarUrl: 'https://www.drupal.org/files/issues/default-avatar.png'
 }
 
 FeedItem.propTypes = {
   imageUrl: PropTypes.string.isRequired,
   nick: PropTypes.string.isRequired,
-  avatarUrl: PropTypes.string.isRequired
+  avatarUrl: PropTypes.string.isRequired,
+  time: PropTypes.number.isRequired
 };
 
 export default FeedItem;
