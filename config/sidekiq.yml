@@ -1,4 +1,4 @@
 :schedule:
   instagram:
-    every: 5m   # Runs once per minute
+    every: 20s   # Runs once per minute
     class: InstagramWorker

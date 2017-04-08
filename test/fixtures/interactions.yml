@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  like_ig: 1
+  like_fb: 1
+  like_tw: 1
+  share_ig: 1
+  share_fb: 1
+  share_tw: 1
+
+two:
+  like_ig: 1
+  like_fb: 1
+  like_tw: 1
+  share_ig: 1
+  share_fb: 1
+  share_tw: 1

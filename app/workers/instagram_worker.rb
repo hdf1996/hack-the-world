@@ -4,11 +4,27 @@ class InstagramWorker
   include Sidekiq::Worker
 
   def perform(*args)
-    Rails.logger.info "Requesting pics for #{Hashtag.count}hashtags"
     Hashtag.find_each do |hashtag|
-      Rails.logger.info "Requestic pics for #{hashtag.id}"
       service = InstagramService.new
-      Rails.logger.info service.photos_by_hashtag(hashtag.name).inspect
+      response = service.photos_by_hashtag(hashtag.name)
+      # Rails.logger.info response.inspect
+
+      response["data"].each do |pic|
+        params = {
+          uid: pic["id"],
+          name:  pic["user"]["full_name"],
+          profile_picture:  pic["user"]["profile_picture"],
+          nick: pic["user"]["username"],
+          original_link: pic["link"],
+          type_interaction: :creation,
+          type_content: :image,
+          text: pic["caption"]["text"],
+          image_url: pic["images"]["standard_resolution"]["url"],
+        }
+        old_interaction = Interaction.find_or_initialize_by(uid: pic["id"]).tap(&:save)
+        new_interaction = old_interaction.update(params)
+
+      end
     end
   end
 end

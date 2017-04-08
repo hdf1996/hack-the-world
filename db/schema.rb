@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170408151319) do
+ActiveRecord::Schema.define(version: 20170408184452) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,23 @@ ActiveRecord::Schema.define(version: 20170408151319) do
     t.index ["pub_id"], name: "index_hashtags_on_pub_id", using: :btree
   end
 
+  create_table "interactions", force: :cascade do |t|
+    t.integer  "amount"
+    t.integer  "type_content",     default: 0
+    t.integer  "type_interaction", default: 0
+    t.string   "text"
+    t.string   "image_url"
+    t.string   "original_link"
+    t.string   "name"
+    t.string   "profile_picture"
+    t.string   "nick"
+    t.string   "uid",              default: ""
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.integer  "hashtag_id"
+    t.index ["hashtag_id"], name: "index_interactions_on_hashtag_id", using: :btree
+  end
+
   create_table "pubs", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -30,4 +47,5 @@ ActiveRecord::Schema.define(version: 20170408151319) do
   end
 
   add_foreign_key "hashtags", "pubs"
+  add_foreign_key "interactions", "hashtags"
 end
