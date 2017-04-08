@@ -20,6 +20,7 @@ class InstagramWorker
           type_content: :image,
           text: pic["caption"]["text"],
           image_url: pic["images"]["standard_resolution"]["url"],
+          hashtag: hashtag
         }
         old_interaction = Interaction.find_or_initialize_by(uid: pic["id"]).tap(&:save)
         new_interaction = old_interaction.update(params)
