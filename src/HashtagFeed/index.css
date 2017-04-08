@@ -1,9 +1,9 @@
 .hashtag-feed {
-  width: 50%;
   height: 100%;
-  background-color: red;
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 100vh;
+  padding: 14px;
+  overflow-y: scroll;
 }

@@ -4,17 +4,13 @@ import HashtagFeed from "../HashtagFeed";
 import "./index.css";
 
 const BarView = ({ match, images, total }) => (
-  <div>
-    <div className="bar-view">
-      <Counter total={total} />
-      <HashtagFeed images={images} />
-    </div>
+  <div className="bar-view">
     <div className="row">
-      <div className="col-xs-10">
-        <CounterInfo />
+      <div className="counter-info-container col-xs-9">
+        <CounterInfo total={total} />
       </div>
-      <div className="col-xs-2">
-        Hashtag feed
+      <div className="hashtag-feed-container col-xs-3">
+        <HashtagFeed images={images} />
       </div>
     </div>
   </div>

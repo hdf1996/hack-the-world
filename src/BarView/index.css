@@ -1,3 +1,7 @@
-.bar-view {
-  background-color: rgba(0, 0, 0, 0.95)
+.bar-view .counter-info-container{
+  background-color: rgba(0, 0, 0, 0.95);
+}
+
+.bar-view .hashtag-feed-container{
+  background-color: rgba(0, 0, 0, 0.9);
 }

@@ -1,12 +1,14 @@
-import React from "react";
-import ImageCard from "../ImageCard";
-import "./index.css";
+import React, { PropTypes } from 'react';
+import FeedItem from '../FeedItem';
+import './index.css';
 
-const HashtagFeed = ({ images }) => {
-  return (
-    <div className="hashtag-feed">
-      {images.map((image, i) => <ImageCard key={i} url={image.url} />)}
-    </div>
-  );
-};
+const HashtagFeed = ({ images }) =>
+  <div className="hashtag-feed">
+    {images.map((image, i) => <FeedItem key={i} imageUrl={image.url} />)}
+  </div>;
+
+HashtagFeed.propTypes = {
+  images: PropTypes.array.isRequired
+}
+
 export default HashtagFeed;
