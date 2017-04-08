@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :redirects, only: [] do
-    member do
+    collection do
       get :instagram
     end
   end
