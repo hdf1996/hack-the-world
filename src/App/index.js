@@ -1,12 +1,17 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import BarView from "./BarView";
+import BarView from "../BarView";
 import axios from "axios";
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      data: {
+        images: ['asd', 'qwe'],
+        total: 10
+      }
+    };
   }
 
   componentWillMount() {
@@ -23,7 +28,7 @@ class App extends Component {
       () => {
         this.poll();
       },
-      2000
+      5000
     );
     this.setState({ timeout: timeout });
   };
@@ -43,7 +48,16 @@ class App extends Component {
     return (
       <Router>
         <div>
-           <Route path="/:barId" component={BarView}/>
+          <Route
+            path="/:barId"
+            render={props => (
+              <BarView
+                {...props}
+                images={this.state.data.images}
+                total={this.state.data.total}
+              />
+            )}
+          />
         </div>
       </Router>
     );
