@@ -1,12 +1,12 @@
 @keyframes wave-front {
   100% {
-    transform: translate(-50%, 0);
+    transform: translateX(-50%);
   }
 }
 
 @keyframes wave-back {
   100% {
-    transform: translate(50%, 0);
+    transform: translateX(50%);
   }
 }
 
@@ -44,6 +44,7 @@
   width: 200%;
   position: absolute;
   bottom: 100%;
+  will-change: transform;
 }
 
 .water__wave_back {
