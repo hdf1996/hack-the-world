@@ -1,3 +1,4 @@
+# https://api.instagram.com/oauth/authorize/?client_id=732f7a8c593249aba716b16a2c9e7261&redirect_uri=https://hacktheworldapi.herokuapp.com/redirects/instagram&response_type=code
 class InstagramService
   attr_accessor :access_token
   CLIENT_ID = "732f7a8c593249aba716b16a2c9e7261"
