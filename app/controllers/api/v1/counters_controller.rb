@@ -4,6 +4,7 @@ class Api::V1::CountersController < ApplicationController
       total: 0.5,
       images: [{
         type: :share,
+        social_network: [:facebook, :instagram, :twitter].sample,
         url: Faker::Avatar.image,
       }]
     }
