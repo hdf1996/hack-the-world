@@ -41,7 +41,7 @@ class BarView extends React.Component {
       () => {
         this.poll();
       },
-      6000
+      60000
     );
     this.setState({ timeout: timeout });
   };

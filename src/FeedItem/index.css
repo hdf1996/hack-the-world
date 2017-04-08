@@ -7,6 +7,35 @@
   width: 100%;
 }
 
-.feedback-item-image {
+.feed-item .feedback-item-image {
   width: 100%;
+}
+
+.feed-item .feed-item-info {
+  display: flex;
+  flex-direction: row;
+  padding: 10px 0;
+  font-family: Helvetica, sans-serif;
+  color: rgba(0, 0, 0, 0.84);
+}
+
+.feed-item .feed-item-info .avatar{
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.feed-item .feed-item-info .info-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+
+.feed-item .feed-item-info .nick {
+  margin-bottom: 6px;
+}
+
+.feed-item .feed-item-info .time {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.5)
 }
