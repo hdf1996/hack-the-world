@@ -1,16 +1,18 @@
-import React from "react";
-import Counter from "../Counter";
-import HashtagFeed from "../HashtagFeed";
-import "./index.css";
+import React from 'react';
+import CounterInfo from '../CounterInfo';
+import HashtagFeed from '../HashtagFeed';
+import './index.css';
 
-const BarView = ({ match, images, total }) => (
+const BarView = ({ match, images, total }) =>
   <div className="bar-view">
-    {/*<h3>Bar ID: {match.params.barId}</h3>*/}
-    {/*{images.map((v, i) => <p key={i}>{v.url}</p>)}*/}
-    {/*<h3>total: {total}</h3>*/}
-    <Counter />
-    <HashtagFeed />
-  </div>
-);
+    <div className="row">
+      <div className="col-xs-10">
+        <CounterInfo />
+      </div>
+      <div className="col-xs-2">
+        Hashtag feed
+      </div>
+    </div>
+  </div>;
 
 export default BarView;
