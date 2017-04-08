@@ -66,13 +66,13 @@ class BarView extends React.Component {
   };
   render() {
     let { images, total } = this.state.data;
+
     return (
       <div className="bar-view">
         <div className="row">
           <div className="counter-info-container col-xs-9">
-            <CounterInfo barId={this.props.match.params.barId} total={total} />
             <CounterProgress progress={total} />
-            <CounterInfo />
+            <CounterInfo barId={this.props.match.params.barId} total={total} />
           </div>
           <div className="hashtag-feed-container col-xs-3">
             <HashtagFeed newImages={images} />

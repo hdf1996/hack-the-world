@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import './index.css';
 
-const CounterInfo = ({barId}) =>
+const CounterInfo = ({ barId }) =>
   <div className="counter-info">
     <div className="logo-container">
       <img className="logo-image" src="http://www.cervezapatagonia.com.ar/img/patagonia-logo.png" alt="Patagonia logo"/>
@@ -12,5 +12,9 @@ const CounterInfo = ({barId}) =>
       para activar el Happy Hour Patagonia para este refugio por una hora.
     </p>
   </div>;
+
+CounterInfo.propTypes = {
+  barId: PropTypes.string.isRequired
+};
 
 export default CounterInfo;
