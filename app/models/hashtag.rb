@@ -7,6 +7,6 @@ class Hashtag < ApplicationRecord
   end
 
   def points
-    interactions.count * 25
+    interactions.count * 100 + interactions.sum(:amount) * 25
   end
 end

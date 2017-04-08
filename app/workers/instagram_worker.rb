@@ -7,10 +7,11 @@ class InstagramWorker
     Hashtag.find_each do |hashtag|
       service = InstagramService.new
       response = service.photos_by_hashtag(hashtag.name)
-      # Rails.logger.info response.inspect
 
       response["data"].each do |pic|
+        Rails.logger.info pic["likes"]["count"].inspect
         params = {
+          amount: pic["likes"]["count"],
           uid: pic["id"],
           name:  pic["user"]["full_name"],
           profile_picture:  pic["user"]["profile_picture"],
