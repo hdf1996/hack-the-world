@@ -23,13 +23,12 @@ class BarSelectionView extends React.Component {
     axios
       .get(url)
       .then(response => {
-        console.log(response.data);
+        // console.log(response.data);
         this.setState({ refugios: response.data });
       })
   };
 
   render() {
-    console.log('refugio', this.state.refugios)
     return (
       <div className="bar-selection">
         <div className="container">

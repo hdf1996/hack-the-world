@@ -59,14 +59,14 @@ class BarView extends React.Component {
           },
           time: response.data.images.length ? response.data.images[response.data.images.length - 1].created_at : prevState.time
         }), () => {
-          console.log('La lista de imagenes es: ', this.state.data.images);
+          // console.log('La lista de imagenes es: ', this.state.data.images);
         });
       })
       .catch(err => console.error(err));
   };
   render() {
     let { images, total } = this.state.data;
-    console.log('this.props.location', this.props.location)
+    // console.log('this.props.location', this.props.location)
     return (
       <div className="bar-view">
         <div className="row">

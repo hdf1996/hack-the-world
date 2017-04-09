@@ -62,3 +62,9 @@
   display: block;
   mix-blend-mode: difference;
 }
+
+.countdown {
+  margin-top: 50px;
+  font-size: 4em;
+  font-family: 'AmsiPro-Bold', Helvetica, sans-serif;
+}
