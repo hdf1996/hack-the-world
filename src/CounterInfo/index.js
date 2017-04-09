@@ -32,7 +32,8 @@ class CounterInfo extends React.Component {
 
   toMinutes = (totalSeconds) => {
     let minutes = Math.floor(totalSeconds/60)
-    let seconds = totalSeconds % 60 || '00'
+    let remainder = totalSeconds % 60
+    let seconds = remainder < 10 ? '0'+remainder : remainder 
     return minutes+':'+seconds
   }
 
