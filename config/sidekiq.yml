@@ -3,5 +3,5 @@
     every: 20s   # Runs once per minute
     class: InstagramWorker
   twitter:
-    every: 5s   # Runs once per minute
+    every: 13s   # Runs once per minute
     class: TwitterWorker
