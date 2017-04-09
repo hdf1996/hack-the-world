@@ -8,6 +8,20 @@
   position: relative;
 }
 
+.counter-info.happy-hour .description {
+  display: none;
+}
+
+.counter-info.happy-hour .logo-image {
+  margin-bottom: 50px;
+}
+
+.counter-info.happy-hour .logo-title {
+  font-size: 82px;
+  border-top: solid 10px #dfac47;
+  border-bottom: solid 10px #dfac47;
+}
+
 .counter-info .logo-container {
   display: inline-flex;
   flex-direction: column;

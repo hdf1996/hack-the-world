@@ -39,7 +39,7 @@ class BarView extends React.Component {
     let url;
     let time = Date.now();
     if (initial) {
-      url = `https://crossorigin.me/https://hacktheworldapi.herokuapp.com/api/v1/counters/${this.props.match.params.barId}`;
+      url = `https://crossorigin.me/https://hacktheworldapi.herokuapp.com/api/v1/counters/${this.props.match.params.barId}?timestamp=${time}`;
     } else {
       url = `https://crossorigin.me/https://hacktheworldapi.herokuapp.com/api/v1/counters/${this.props.match.params.barId}?lastpoll=${time}&id=1`;
     }
@@ -48,7 +48,18 @@ class BarView extends React.Component {
       .get(url)
       .then(response => {
         console.log(response.data);
-        this.setState({ data: response.data, time: time });
+
+        this.setState(prevState => ({
+          data: {
+            total: response.data.total,
+            images: prevState.data.images 
+              .concat(response.data.images)
+              .slice(-10)
+          },
+          time: response.data.images.length ? response.data.images[response.data.images.length - 1].created_at : prevState.time
+        }), () => {
+          console.log('La lista de imagenes es: ', this.state.data.images);
+        });
       })
       .catch(err => console.error(err));
   };
@@ -60,10 +71,10 @@ class BarView extends React.Component {
         <div className="row">
           <div className="counter-info-container col-xs-9">
             <CounterProgress progress={total} />
-            <CounterInfo barId={this.props.match.params.barId} />
+            <CounterInfo barId={this.props.match.params.barId} progress={total} />
           </div>
           <div className="hashtag-feed-container col-xs-3">
-            <HashtagFeed newImages={images} />
+            <HashtagFeed feedItems={images} />
           </div>
         </div>
       </div>
