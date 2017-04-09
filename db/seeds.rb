@@ -1,5 +1,6 @@
 [{
     name: "Distrito Arcos",
+    slug: :arcos,
     direction: "Paraguay 4979 - Centro Comercial Distrito",
     telephone: "",
     latitude: "-34.5811051",
@@ -7,6 +8,7 @@
   },
   {
     name: "Callao y Viamonte",
+    slug: :callao,
     direction: "Callao 650",
     telephone: "54 911 2091 3982",
     latitude: "-34.6014216",
@@ -14,6 +16,7 @@
   },
   {
     name: "Paraguay y Riobamba",
+    slug: :riobamba,
     direction: "Paraguay 1900",
     telephone: "54 911 2091 9641",
     latitude: "-34.5987254",
