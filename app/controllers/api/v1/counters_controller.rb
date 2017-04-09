@@ -4,7 +4,7 @@ class Api::V1::CountersController < ApplicationController
     @interactions = Pub.find_by(slug: params[:id]).hashtag.interactions.where('id > ?', params[:last_id]).order(:id) if params[:last_id].present?
     render json: {
       total: Pub.find_by(slug: params[:id]).hashtag.goal_completed,
-      images: @interactions
+      interactions: @interactions
     }
   end
 end
