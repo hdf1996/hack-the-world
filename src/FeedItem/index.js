@@ -23,7 +23,7 @@ const FeedItem = ({ imageUrl, nick, text, avatarUrl, time, typeInteraction, type
           </div>
           <div className="image-interaction-text">
             <span className="nick">
-              A {likes} persona{likes > 1 ? 's' : ''} le gusta la foto de @{nick}
+              A {likes} persona{likes > 1 ? 's' : ''} le gusta el mensaje de @{nick}
             </span>
             <div style={{ display: 'flex', alignItems: 'center' }}>
               <span className="time">{Moment(time*1000).fromNow()}</span>
