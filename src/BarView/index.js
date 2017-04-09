@@ -12,17 +12,17 @@ class BarView extends React.Component {
     this.state = {
       data: {
         total: 0,
-        images: []
+        interactions: []
       }
     };
   }
 
-  componentWillUnmount() {
-    clearTimeout(this.state.timeout);
-  }
-
   componentDidMount() {
     this.startPolling();
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this.state.timeout);
   }
 
   startPolling() {
@@ -38,35 +38,36 @@ class BarView extends React.Component {
   poll = (initial = false) => {
     let url;
 
-    if (initial || !this.state.data.images.length) {
+    console.log(this.state.data);
+
+    if (initial || !this.state.data.interactions.length) {
       url = `https://crossorigin.me/https://hacktheworldapi.herokuapp.com/api/v1/counters/${this.props.match.params.barSlug}`;
     } else {
-      const lastID = this.state.data.images[this.state.data.images.length - 1].id;
+      const lastID = this.state.data.interactions[this.state.data.interactions.length - 1].id;
       url = `https://crossorigin.me/https://hacktheworldapi.herokuapp.com/api/v1/counters/${this.props.match.params.barSlug}?last_id=${lastID}`;
     }
 
     axios
       .get(url)
       .then(response => {
-        console.log(response.data);
+        console.log('response.data', response.data);
 
         this.setState(prevState => ({
           data: {
             total: response.data.total,
-            images: prevState.data.images 
-              .concat(response.data.images)
+            interactions: prevState.data.interactions 
+              .concat(response.data.interactions)
               .slice(-10)
           },
-          time: response.data.images.length ? response.data.images[response.data.images.length - 1].created_at : prevState.time
-        }), () => {
-          // console.log('La lista de imagenes es: ', this.state.data.images);
-        });
+          time: response.data.interactions.length ?
+            response.data.interactions[response.data.interactions.length - 1].created_at : prevState.time
+        }));
       })
       .catch(err => console.error(err));
   };
   render() {
-    let { images, total } = this.state.data;
-    // console.log('this.props.location', this.props.location)
+    let { interactions, total } = this.state.data;
+
     return (
       <div className="bar-view">
         <div className="row">
@@ -79,7 +80,7 @@ class BarView extends React.Component {
             />
           </div>
           <div className="hashtag-feed-container col-xs-3">
-            <HashtagFeed feedItems={images.reverse()} />
+            <HashtagFeed feedItems={interactions.reverse()} />
           </div>
         </div>
       </div>
