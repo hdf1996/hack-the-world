@@ -6,7 +6,7 @@ const HashtagFeed = ({ feedItems }) =>
   <div className="hashtag-feed">
     {feedItems.map((feedItem, i) => (
       <FeedItem
-        key={feedItem.uid}
+        key={`${feedItem.type_interaction}-${feedItem.uid}`}
         imageUrl={feedItem.image_url}
         nick={feedItem.nick}
         time={feedItem.created_at}
