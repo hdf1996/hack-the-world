@@ -1,7 +1,7 @@
 class Api::V1::CountersController < ApplicationController
   def show 
-    @interactions = Interaction.last(10)
-    @interactions = Interaction.where('created_at >= ?', Time.at(params[:lastpoll].to_i).to_datetime) if params[:lastpoll].present?
+    @interactions = Interaction.order(:id).last(10)
+    @interactions = Interaction.where('id > ?', params[:last_id]).order(:id) if params[:last_id].present?
     render json: {
       total: Pub.find(1).hashtag.goal_completed,
       images: @interactions
