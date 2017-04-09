@@ -11,17 +11,26 @@ class TwitterWorker
           profile_picture: twitt.user.profile_image_uri_https.to_s,
           nick: twitt.user.screen_name,
           original_link: twitt.uri.to_s,
-          type_interaction: :creation,
+          type_interaction: 1,
           type_content: tweet_type(twitt),
           text: twitt.full_text,
           image_url: twitt_media(twitt),
           hashtag: hashtag,
           social_network: :twitter,
         }
-        old_interaction = Interaction.find_or_initialize_by(uid: twitt.id).tap(&:save)
-        logger.debug "#{old_interaction.errors.inspect}"
-        new_interaction = old_interaction.update(params)
-        logger.debug "#{new_interaction.inspect}"
+        if Interaction.where(uid: twitt.id).any?
+          s = Subevent.new(params)
+          if Interaction.find_by(uid: twitt.id).amount != s.amount
+            Subevent.create(params.merge(
+              amount: s.amount - Interaction.find_by(uid: twitt.id).amount,
+              type_interaction: 1
+            ))
+          end
+          Interaction.find_by(uid: twitt.id).update(params)
+        else
+          Interaction.create(params)
+          Subevent.create(params)
+        end
       end
     end
   end

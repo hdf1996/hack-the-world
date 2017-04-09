@@ -1,6 +1,7 @@
 class Hashtag < ApplicationRecord
   belongs_to :pub
   has_many :interactions
+  has_many :subevents
 
   def goal_completed
     points / goal.to_f

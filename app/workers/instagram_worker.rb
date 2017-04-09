@@ -24,10 +24,19 @@ class InstagramWorker
           hashtag: hashtag,
           social_network: :instagram
         }
-        old_interaction = Interaction.find_or_initialize_by(uid: pic["id"]).tap(&:save)
-        logger.debug "#{old_interaction.inspect}"
-        new_interaction = old_interaction.update(params)
-        logger.debug "#{new_interaction.inspect}"
+        if Interaction.where(uid: pic["id"]).any?
+          s = Subevent.new(params)
+          if Interaction.find_by(uid: pic["id"]).amount != s.amount
+            Subevent.create(params.merge(
+              amount: s.amount - Interaction.find_by(uid: pic["id"]).amount,
+              type_interaction: 1
+            ))
+          end
+          Interaction.find_by(uid: pic["id"]).update(params)
+        else
+          Interaction.create(params)
+          Subevent.create(params)
+        end
       end
     end
   end

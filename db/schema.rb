@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170408220028) do
+ActiveRecord::Schema.define(version: 20170409051723) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,27 @@ ActiveRecord::Schema.define(version: 20170408220028) do
     t.string   "telephone"
     t.string   "latitude"
     t.string   "longitude"
+    t.string   "slug"
+    t.string   "picture"
+  end
+
+  create_table "subevents", force: :cascade do |t|
+    t.integer  "amount"
+    t.integer  "type_content",     default: 0
+    t.integer  "type_interaction", default: 0
+    t.string   "text"
+    t.string   "image_url"
+    t.string   "original_link"
+    t.string   "name"
+    t.string   "profile_picture"
+    t.string   "nick"
+    t.string   "uid",              default: ""
+    t.integer  "hashtag_id"
+    t.integer  "social_network"
+    t.datetime "when"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.index ["hashtag_id"], name: "index_subevents_on_hashtag_id", using: :btree
   end
 
   add_foreign_key "hashtags", "pubs"
