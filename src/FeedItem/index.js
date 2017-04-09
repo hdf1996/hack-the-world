@@ -4,7 +4,11 @@ import './index.css';
 
 Moment.locale('es');
 
-const FeedItem = ({ imageUrl, nick, text, avatarUrl, time, typeInteraction, typeContent }) =>
+const FeedItem = ({ imageUrl, nick, text, avatarUrl, time, typeInteraction, typeContent }) => {
+  let hashtag = /#[a-zA-Z]+/.exec(text)[0]
+  let [user, link] = text.split(hashtag)
+  // console.log(user, hashtag, link)
+  return (
   <div className="feed-item animated fadeIn">
     { (typeContent === 'image' && typeInteraction === 'creation') &&
       <img className="feedback-item-image" src={imageUrl} alt="Hashtag feed item" />
@@ -26,7 +30,7 @@ const FeedItem = ({ imageUrl, nick, text, avatarUrl, time, typeInteraction, type
     { (typeInteraction === 'creation') &&
       <div>
         <div className="feed-item-content">
-          {text}
+          <span>{user}</span><span className="hashtag">{hashtag}</span><span>{link}</span>
         </div>
         <div className="feed-item-info">
           <img className="avatar" src={avatarUrl} alt={`${nick} avatar`} />
@@ -37,8 +41,9 @@ const FeedItem = ({ imageUrl, nick, text, avatarUrl, time, typeInteraction, type
         </div>
       </div>
     }
-  </div>;
-
+  </div>
+  )
+}
 FeedItem.defaultProps = {
   avatarUrl: 'https://www.drupal.org/files/issues/default-avatar.png'
 }
