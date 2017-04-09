@@ -11,7 +11,7 @@ class TwitterWorker
           profile_picture: twitt.user.profile_image_uri_https.to_s,
           nick: twitt.user.screen_name,
           original_link: twitt.uri.to_s,
-          type_interaction: 1,
+          type_interaction: :creation,
           type_content: tweet_type(twitt),
           text: twitt.full_text,
           image_url: twitt_media(twitt),
@@ -23,7 +23,7 @@ class TwitterWorker
           if Interaction.find_by(uid: twitt.id).amount != s.amount
             Subevent.create(params.merge(
               amount: s.amount - Interaction.find_by(uid: twitt.id).amount,
-              type_interaction: 1
+              type_interaction: :like
             ))
           end
           Interaction.find_by(uid: twitt.id).update(params)

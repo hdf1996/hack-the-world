@@ -2,8 +2,8 @@ class CreateInteractions < ActiveRecord::Migration[5.0]
   def change
     create_table :interactions do |t|
       t.integer :amount
-      t.integer :type_content, default: 0
-      t.integer :type_interaction, default: 0
+      t.string :type_content, default: 0
+      t.string :type_interaction, default: 0
 
       t.string :text
       t.string :image_url

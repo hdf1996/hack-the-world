@@ -17,19 +17,19 @@ class InstagramWorker
           profile_picture:  pic["user"]["profile_picture"],
           nick: pic["user"]["username"],
           original_link: pic["link"],
-          type_interaction: 1,
-          type_content: 1,
+          type_interaction: :creation,
+          type_content: :image,
           text: pic["caption"]["text"],
           image_url: pic["images"]["standard_resolution"]["url"],
           hashtag: hashtag,
-          social_network: 0
+          social_network: :instagram
         }
         if Interaction.where(uid: pic["id"]).any?
           s = Subevent.new(params)
           if Interaction.find_by(uid: pic["id"]).amount != s.amount
             Subevent.create(params.merge(
               amount: s.amount - Interaction.find_by(uid: pic["id"]).amount,
-              type_interaction: 1
+              type_interaction: :like
             ))
           end
           Interaction.find_by(uid: pic["id"]).update(params)
