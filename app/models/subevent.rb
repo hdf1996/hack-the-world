@@ -4,8 +4,8 @@ class Subevent < ApplicationRecord
   def as_json obj= {}
     {
       id: id,
-      type_interaction: Interaction.type_interactions.keys[type_interaction],
-      type_content: Interaction.type_contents.keys[type_content],
+      type_interaction: type_interaction,
+      type_content: type_content,
       text: text,
       image_url: image_url,
       original_link: original_link,
