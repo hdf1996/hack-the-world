@@ -30,7 +30,7 @@ class BarView extends React.Component {
 
     let timeout = setInterval(
       this.poll,
-      10000
+      8000
     );
     this.setState({ timeout: timeout });
   };
