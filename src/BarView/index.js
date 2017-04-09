@@ -62,7 +62,6 @@ class BarView extends React.Component {
           // console.log('La lista de imagenes es: ', this.state.data.images);
         });
       })
-      .catch(err => console.error(err));
   };
   render() {
     let { images, total } = this.state.data;

@@ -11,6 +11,10 @@ const FeedItem = ({ imageUrl, nick, avatarUrl, time }) =>
         <span className="nick">{nick}</span>
         <span className="time">{Moment(time*1000).fromNow()}</span>
       </div>
+      <div className="like-shares">
+        <span className="icon is-small"><i className="fa fa-retweet"></i></span>
+        <span className="icon is-small"><i className="fa fa-heart"></i></span>
+      </div>
     </div>
   </div>;
 
