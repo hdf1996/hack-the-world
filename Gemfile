@@ -23,6 +23,7 @@ gem 'faker'
 gem 'sidekiq'
 gem 'sidekiq-scheduler'
 gem 'httparty'
+gem 'twitter'
 
 group :development, :test do
   gem 'pry-rails'

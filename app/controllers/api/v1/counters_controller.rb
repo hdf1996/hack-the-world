@@ -6,13 +6,5 @@ class Api::V1::CountersController < ApplicationController
       total: Pub.find_by(slug: params[:id]).hashtag.goal_completed,
       images: @interactions
     }
-    # render json: {
-    #   total: 0.5,
-    #   images: [{
-    #     type: :share,
-    #     social_network: [:facebook, :instagram, :twitter].sample,
-    #     url: InstagramService.new.photos_by_hashtag(Hashtag.first.name),
-    #   }]
-    # }
   end
 end

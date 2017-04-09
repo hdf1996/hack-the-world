@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :redirects, only: [] do
     collection do
       get :instagram
+      get :twitter
     end
   end
 
