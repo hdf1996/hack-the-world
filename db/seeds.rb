@@ -1,7 +1,7 @@
 [{
     name: "Distrito Arcos",
     slug: :arcos,
-    picture: "http://www.cervezapatagonia.com.ar/img/Mobile/Refugios/distritoarcos.jpg"
+    picture: "http://www.cervezapatagonia.com.ar/img/Mobile/Refugios/distritoarcos.jpg",
     direction: "Paraguay 4979 - Centro Comercial Distrito",
     telephone: "",
     latitude: "-34.5811051",
@@ -10,7 +10,7 @@
   {
     name: "Callao y Viamonte",
     slug: :callao,
-    picture: "http://www.cervezapatagonia.com.ar/img/Mobile/Refugios/callaoyviamonte.jpg"
+    picture: "http://www.cervezapatagonia.com.ar/img/Mobile/Refugios/callaoyviamonte.jpg",
     direction: "Callao 650",
     telephone: "54 911 2091 3982",
     latitude: "-34.6014216",
@@ -18,7 +18,7 @@
   },
   {
     name: "Paraguay y Riobamba",
-    picture: "http://www.cervezapatagonia.com.ar/img/Mobile/Refugios/paraguayyriobamba.jpg"
+    picture: "http://www.cervezapatagonia.com.ar/img/Mobile/Refugios/paraguayyriobamba.jpg",
     slug: :riobamba,
     direction: "Paraguay 1900",
     telephone: "54 911 2091 9641",
