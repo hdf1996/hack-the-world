@@ -36,6 +36,7 @@
 
 .feed-item .feed-item-info .info-container {
   margin-left: 10px;
+  width: 100%;
 }
 
 .feed-item .feed-item-info .nick {
@@ -112,4 +113,26 @@
 }
 .hashtag {
   font-weight: 700;
+}
+.like-counter {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+.like-counter-number {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.heart-icon {
+  fill: #E2264D;
+  height: 15px;
+  margin-right: 3px;
+}
+.feed-metadata {
+ display: flex;
+ align-items: center;
+ width: 100%;
+ justify-content: space-between; 
 }

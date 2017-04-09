@@ -51,6 +51,14 @@ const FeedItem = ({ imageUrl, nick, text, avatarUrl, time, typeInteraction, type
               <span className="social-network">via {socialNetwork.charAt(0).toUpperCase() + socialNetwork.slice(1)}</span>
             </div>
           </div>
+          {/*<div className="like-counter-content">
+            <div className="like-counter">  
+            <svg className="heart-icon" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" version="1.1" id="Heart" x="0px" y="0px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xmlSpace="preserve">
+              <path  d="M17.19,4.155c-1.672-1.534-4.383-1.534-6.055,0L10,5.197L8.864,4.155c-1.672-1.534-4.382-1.534-6.054,0  c-1.881,1.727-1.881,4.52,0,6.246L10,17l7.19-6.599C19.07,8.675,19.07,5.881,17.19,4.155z"/>
+              <div xmlns="http://www.w3.org/1999/xhtml"></div></svg>
+            <span className="like-counter-number">{likes}</span>
+            </div>
+          </div>*/}
         </div>
       }
       { (typeInteraction === 'creation') &&
@@ -62,10 +70,18 @@ const FeedItem = ({ imageUrl, nick, text, avatarUrl, time, typeInteraction, type
             <img className="avatar" src={avatarUrl} alt={`${nick} avatar`} />
             <div className="info-container">
               <span className="nick">@{nick}</span>
-              <div style={{ display: 'flex', alignItems: 'center' }}>
+              <div className="feed-metadata" style={{ display: 'flex', alignItems: 'center' }}>
+                <div className="data-wrapper">
                 <span className="time">{Moment(time*1000).fromNow()}</span>
                 <span className="circle"/>
                 <span className="social-network">via {socialNetwork.charAt(0).toUpperCase() + socialNetwork.slice(1)}</span>
+                </div>
+                  <div className="like-counter">  
+                  <svg className="heart-icon" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" version="1.1" id="Heart" x="0px" y="0px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xmlSpace="preserve">
+                    <path  d="M17.19,4.155c-1.672-1.534-4.383-1.534-6.055,0L10,5.197L8.864,4.155c-1.672-1.534-4.382-1.534-6.054,0  c-1.881,1.727-1.881,4.52,0,6.246L10,17l7.19-6.599C19.07,8.675,19.07,5.881,17.19,4.155z"/>
+                    <div xmlns="http://www.w3.org/1999/xhtml"></div></svg>
+                  <span className="like-counter-number">{likes}</span>
+                </div>
               </div>
             </div>
           </div>
