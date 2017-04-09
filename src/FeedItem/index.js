@@ -9,7 +9,7 @@ const FeedItem = ({ imageUrl, nick, avatarUrl, time }) =>
       <img className="avatar" src={avatarUrl} alt={`${nick} avatar`} />
       <div className="info-container">
         <span className="nick">{nick}</span>
-        <span className="time">{Moment(time).fromNow()}</span>
+        <span className="time">{Moment(time*1000).fromNow()}</span>
       </div>
     </div>
   </div>;
