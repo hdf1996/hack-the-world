@@ -17,12 +17,12 @@ class InstagramWorker
           profile_picture:  pic["user"]["profile_picture"],
           nick: pic["user"]["username"],
           original_link: pic["link"],
-          type_interaction: :creation,
-          type_content: :image,
+          type_interaction: 1,
+          type_content: 1,
           text: pic["caption"]["text"],
           image_url: pic["images"]["standard_resolution"]["url"],
           hashtag: hashtag,
-          social_network: :instagram
+          social_network: 0
         }
         if Interaction.where(uid: pic["id"]).any?
           s = Subevent.new(params)
