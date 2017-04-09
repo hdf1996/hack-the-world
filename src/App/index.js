@@ -17,7 +17,7 @@ class App extends Component {
           />
           <Route
             path="/:barId"
-            component={BarView}
+              component={BarView}
           />
         </div>
       </Router>
