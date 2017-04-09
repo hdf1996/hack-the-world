@@ -14,6 +14,7 @@ const HashtagFeed = ({ feedItems }) =>
         avatarUrl={feedItem.profile_picture}
         typeInteraction={feedItem.type_interaction}
         typeContent={feedItem.type_content}
+        socialNetwork={feedItem.social_network}
       />
     )}
   </div>;
