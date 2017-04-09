@@ -19,11 +19,10 @@ class BarSelectionView extends React.Component {
   }
 
   fetchRefugios = () => {
-    let url = "https://crossorigin.me/https://hacktheworldapi.herokuapp.com/api/v1/pubs";
+    let url = "https://hacktheworldapi.herokuapp.com/api/v1/pubs";
     axios
       .get(url)
       .then(response => {
-        // console.log(response.data);
         this.setState({ refugios: response.data });
       })
   };
