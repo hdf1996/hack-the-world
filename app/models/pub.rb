@@ -5,6 +5,8 @@ class Pub < ApplicationRecord
     {
       id: id,
       name: name,
+      slug: slug
+      picture: picture,
       hashtag: hashtag.name,
       goal_completed: hashtag.goal_completed,
       telephone: telephone,
