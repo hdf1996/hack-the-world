@@ -9,7 +9,10 @@ class BarSelectionView extends React.Component {
     this.state = {
       refugios: []
     };
-    this.fetchRefugios();
+  }
+
+  componentDidMount (){
+    this.fetchRefugios()
   }
 
   fetchRefugios = () => {
@@ -18,16 +21,18 @@ class BarSelectionView extends React.Component {
       .get(url)
       .then(response => {
         console.log(response.data);
-        this.setState({ refugios: this.response.data });
+        this.setState({ refugios: response.data });
       })
   };
 
   render() {
+    console.log('refugio', this.state.refugios)
     return (
       <div className="bar-selection">
         Bar selection view
-        <Link to="/fede">Fede</Link>
-        <Link to="/ariel">Ariel</Link>
+        {this.state.refugios.map(refugio => (
+        <Link key={refugio.id} to={{pathname: refugio.slug, state: {refugio: refugio} }}>{refugio.name}</Link>
+        ))}
       </div>
     );
   }

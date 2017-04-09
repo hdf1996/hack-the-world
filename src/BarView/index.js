@@ -5,9 +5,11 @@ import HashtagFeed from "../HashtagFeed";
 import axios from "axios";
 import "./index.css";
 
+
+
 class BarView extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       data: {
@@ -66,13 +68,13 @@ class BarView extends React.Component {
   };
   render() {
     let { images, total } = this.state.data;
-
+    console.log('this.props.location', this.props.location)
     return (
       <div className="bar-view">
         <div className="row">
           <div className="counter-info-container col-xs-9">
             <CounterProgress progress={total} />
-            <CounterInfo barId={this.props.match.params.barId} progress={total} />
+            <CounterInfo hashtag={this.props.location.state.refugio.hashtag} barId={this.props.match.params.barId} progress={total} />
           </div>
           <div className="hashtag-feed-container col-xs-3">
             <HashtagFeed feedItems={images} />
