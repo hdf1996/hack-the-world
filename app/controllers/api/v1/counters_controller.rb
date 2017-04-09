@@ -3,7 +3,7 @@ class Api::V1::CountersController < ApplicationController
     @interactions = Interaction.order(:id).last(10)
     @interactions = Interaction.where('id > ?', params[:last_id]).order(:id) if params[:last_id].present?
     render json: {
-      total: Pub.find(1).hashtag.goal_completed,
+      total: Pub.find_by(slug: params[:id]).hashtag.goal_completed,
       images: @interactions
     }
     # render json: {
