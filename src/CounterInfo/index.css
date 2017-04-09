@@ -71,3 +71,6 @@
 .social-logos {
   margin-top: 70px;
 }
+.social-logos.happy-hour {
+  display: none;
+}
