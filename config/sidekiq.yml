@@ -1,7 +1,7 @@
 :schedule:
   instagram:
-    every: 30s   # Runs once per minute
+    every: 25s   # Runs once per minute
     class: InstagramWorker
   twitter:
-    every: 30s   # Runs once per minute
+    every: 25s   # Runs once per minute
     class: TwitterWorker
