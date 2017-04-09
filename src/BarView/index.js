@@ -38,10 +38,11 @@ class BarView extends React.Component {
   poll = (initial = false) => {
     let url;
     let time = Date.now();
+    const lastID = this.state.data.images[this.state.data.images - 1].id;
     if (initial) {
-      url = `https://crossorigin.me/https://hacktheworldapi.herokuapp.com/api/v1/counters/${this.props.match.params.barId}?timestamp=${time}`;
+      url = `https://crossorigin.me/https://hacktheworldapi.herokuapp.com/api/v1/counters/${this.props.match.params.barId}`;
     } else {
-      url = `https://crossorigin.me/https://hacktheworldapi.herokuapp.com/api/v1/counters/${this.props.match.params.barId}?lastpoll=${time}&id=1`;
+      url = `https://crossorigin.me/https://hacktheworldapi.herokuapp.com/api/v1/counters/${this.props.match.params.barId}?last_id=${lastID}&id=1`;
     }
 
     axios
