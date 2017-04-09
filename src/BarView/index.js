@@ -38,8 +38,6 @@ class BarView extends React.Component {
   poll = (initial = false) => {
     let url;
 
-    console.log(this.state.data);
-
     if (initial || !this.state.data.interactions.length) {
       url = `https://hacktheworldapi.herokuapp.com/api/v1/counters/${this.props.match.params.barSlug}`;
     } else {
@@ -50,8 +48,6 @@ class BarView extends React.Component {
     axios
       .get(url)
       .then(response => {
-        console.log('response.data', response.data);
-
         this.setState(prevState => ({
           data: {
             total: response.data.total,
@@ -79,7 +75,7 @@ class BarView extends React.Component {
             />
           </div>
           <div className="hashtag-feed-container col-xs-3">
-            <HashtagFeed feedItems={interactions.reverse()} />
+            <HashtagFeed feedItems={[...interactions].reverse()} />
           </div>
         </div>
       </div>
