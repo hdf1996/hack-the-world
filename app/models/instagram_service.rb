@@ -8,7 +8,9 @@ class InstagramService
   REDIRECT_URL = "http://localhost:3000/redirects/instagram"
 
   def photos_by_hashtag(hashtag)
-    JSON.parse(self.class.get("https://api.instagram.com/v1/tags/#{hashtag}/media/recent", options).body)
+    r = JSON.parse(self.class.get("https://api.instagram.com/v1/tags/#{hashtag}/media/recent", options).body)
+    Rails.logger.info r
+    r
   end
 
   def options opts={}

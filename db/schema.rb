@@ -26,8 +26,8 @@ ActiveRecord::Schema.define(version: 20170409051723) do
 
   create_table "interactions", force: :cascade do |t|
     t.integer  "amount"
-    t.integer  "type_content",     default: 0
-    t.integer  "type_interaction", default: 0
+    t.string   "type_content",     default: "0"
+    t.string   "type_interaction", default: "0"
     t.string   "text"
     t.string   "image_url"
     t.string   "original_link"
@@ -35,10 +35,10 @@ ActiveRecord::Schema.define(version: 20170409051723) do
     t.string   "profile_picture"
     t.string   "nick"
     t.string   "uid",              default: ""
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.integer  "hashtag_id"
-    t.integer  "social_network"
+    t.string   "social_network"
     t.datetime "when"
     t.index ["hashtag_id"], name: "index_interactions_on_hashtag_id", using: :btree
   end
@@ -57,8 +57,8 @@ ActiveRecord::Schema.define(version: 20170409051723) do
 
   create_table "subevents", force: :cascade do |t|
     t.integer  "amount"
-    t.integer  "type_content",     default: 0
-    t.integer  "type_interaction", default: 0
+    t.string   "type_content",     default: "0"
+    t.string   "type_interaction", default: "0"
     t.string   "text"
     t.string   "image_url"
     t.string   "original_link"
@@ -67,10 +67,10 @@ ActiveRecord::Schema.define(version: 20170409051723) do
     t.string   "nick"
     t.string   "uid",              default: ""
     t.integer  "hashtag_id"
-    t.integer  "social_network"
+    t.string   "social_network"
     t.datetime "when"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.index ["hashtag_id"], name: "index_subevents_on_hashtag_id", using: :btree
   end
 
