@@ -2,6 +2,8 @@ import React, { PropTypes } from 'react';
 import Moment from 'moment';
 import './index.css';
 
+Moment.locale('es');
+
 const FeedItem = ({ imageUrl, nick, text, avatarUrl, time, typeInteraction, typeContent }) =>
   <div className="feed-item animated fadeIn">
     { (typeContent === 'image' && typeInteraction === 'creation') &&
