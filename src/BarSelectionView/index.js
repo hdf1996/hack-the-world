@@ -1,14 +1,17 @@
 import React from "react";
 import "./index.css";
+import { Link } from 'react-router-dom';
 import axios from "axios";
-import { Link } from 'react-router-dom'
 
 class BarSelectionView extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       refugios: []
     };
+
+    this.fetchRefugios = this.fetchRefugios.bind(this);
   }
 
   componentDidMount (){
@@ -29,10 +32,23 @@ class BarSelectionView extends React.Component {
     console.log('refugio', this.state.refugios)
     return (
       <div className="bar-selection">
-        Bar selection view
-        {this.state.refugios.map(refugio => (
-        <Link key={refugio.id} to={{pathname: refugio.slug, state: {refugio: refugio} }}>{refugio.name}</Link>
-        ))}
+        <div className="container">
+          <img src="http://www.cervezapatagonia.com.ar/img/patagonia-logo.png" className="bar-selection-logo" alt="Patagonia logo" />
+          <ul className="bar-list row">
+            { this.state.refugios.map(refugio =>
+              <li className="bar-item-container col-xs" key={refugio.id}>
+                <Link key={refugio.id} to={{pathname: refugio.slug, state: {refugio: refugio} }}>
+                  <div className="bar-item animated fadeIn">
+                    <img className="bar-item-image" src={ refugio.picture } alt={refugio.name}/> 
+                    <div className="bar-item-content">
+                      <h2 className="bar-item-title">{ refugio.name }</h2>
+                    </div>
+                  </div>
+                </Link>
+              </li>
+            )}
+          </ul>
+        </div>
       </div>
     );
   }

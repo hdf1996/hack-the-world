@@ -9,6 +9,8 @@
 
 .feed-item .feedback-item-image {
   width: 100%;
+  min-height: 380px;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .feed-item .feed-item-info {

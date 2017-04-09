@@ -1,3 +1,52 @@
 .bar-selection {
-  
+  background-color: rgba(0, 0, 0, 0.94);
+  height: 100%;
+  background-image: url('http://www.cervezapatagonia.com.ar/img/Desktop/01_La_Micro.jpg');
+  background-size: cover;
+  position: relative;
+  color: black;
+}
+
+.bar-selection-logo{
+  width: 240px;
+  padding-top: 60px;
+  padding-bottom: 80px;
+  margin: 0 auto;
+  display: block;
+}
+
+.bar-item-container{
+  transition: transform 0.5s;
+}
+
+.bar-item-container > a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.84);
+}
+
+.bar-item-container:hover {
+  transform: scale(1.02);
+}
+
+.bar-list {
+  list-style-type: none;
+  margin: 0;
+  text-align: center;
+}
+
+.bar-list .bar-item {
+  background-color: white;
+  border-radius: 3px;
+  padding: 14px;
+}
+
+.bar-list .bar-item-image {
+  width: 100%;
+  min-height: 348px;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.bar-list .bar-item-title {
+  margin-top: 14px;
+  margin-bottom: 6px;
 }

@@ -5,8 +5,6 @@ import HashtagFeed from "../HashtagFeed";
 import axios from "axios";
 import "./index.css";
 
-
-
 class BarView extends React.Component {
   constructor(props) {
     super(props);
@@ -39,12 +37,12 @@ class BarView extends React.Component {
 
   poll = (initial = false) => {
     let url;
-    let time = Date.now();
-    const lastID = this.state.data.images[this.state.data.images - 1].id;
-    if (initial) {
-      url = `https://crossorigin.me/https://hacktheworldapi.herokuapp.com/api/v1/counters/${this.props.match.params.barId}`;
+
+    if (initial || !this.state.data.images.length) {
+      url = `https://crossorigin.me/https://hacktheworldapi.herokuapp.com/api/v1/counters/${this.props.match.params.barSlug}`;
     } else {
-      url = `https://crossorigin.me/https://hacktheworldapi.herokuapp.com/api/v1/counters/${this.props.match.params.barId}?last_id=${lastID}&id=1`;
+      const lastID = this.state.data.images[this.state.data.images.length - 1].id;
+      url = `https://crossorigin.me/https://hacktheworldapi.herokuapp.com/api/v1/counters/${this.props.match.params.barSlug}?last_id=${lastID}`;
     }
 
     axios
@@ -74,10 +72,14 @@ class BarView extends React.Component {
         <div className="row">
           <div className="counter-info-container col-xs-9">
             <CounterProgress progress={total} />
-            <CounterInfo hashtag={this.props.location.state.refugio.hashtag} barId={this.props.match.params.barId} progress={total} />
+            <CounterInfo
+              hashtag={this.props.location.state.refugio.hashtag}
+              barId={this.props.match.params.barId}
+              progress={total}
+            />
           </div>
           <div className="hashtag-feed-container col-xs-3">
-            <HashtagFeed feedItems={images} />
+            <HashtagFeed feedItems={images.reverse()} />
           </div>
         </div>
       </div>
