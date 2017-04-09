@@ -51,7 +51,7 @@
 .counter-info .description {
   font-size: 36px;
   letter-spacing: 2px;
-  max-width: 680px;
+  max-width: 660px;
   line-height: 1.5em;
   margin: 0;
 }
@@ -69,7 +69,7 @@
   font-family: 'AmsiPro-Bold', Helvetica, sans-serif;
 }
 .social-logos {
-  margin-top: 70px;
+  margin-top: 50px;
 }
 .social-logos.happy-hour {
   display: none;
