@@ -16,6 +16,7 @@ class Interaction < ApplicationRecord
       profile_picture: profile_picture,
       nick: nick,
       uid: uid,
+      likes: amount,
       hashtag: hashtag.try(:name),
       social_network: social_network,
       created_at: created_at.to_i

@@ -6,7 +6,7 @@ class Pub < ApplicationRecord
       id: id,
       name: name,
       hashtag: hashtag.name,
-      goal_completed: hashtag.goal_completed, 
+      goal_completed: hashtag.goal_completed,
       telephone: telephone,
       direction: direction,
       latitude: latitude,
