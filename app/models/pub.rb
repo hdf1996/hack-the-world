@@ -1,6 +1,10 @@
 class Pub < ApplicationRecord
   has_one :hashtag
   
+  def goal_completed
+    hashtag.goal_completed
+  end
+
   def as_json obj={}
     {
       id: id,

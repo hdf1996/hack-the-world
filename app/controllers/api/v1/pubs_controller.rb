@@ -1,5 +1,7 @@
 class Api::V1::PubsController < ApplicationController
   def index
-    render json: Pub.all
+    @response = Pub.all
+    @response = @response.sort(&:goal_completed)
+    render json: @response
   end
 end
