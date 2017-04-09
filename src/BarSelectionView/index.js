@@ -1,6 +1,7 @@
 import React from "react";
 import "./index.css";
 import axios from "axios";
+import { Link } from 'react-router-dom'
 
 class BarSelectionView extends React.Component {
   constructor(props) {
@@ -25,6 +26,8 @@ class BarSelectionView extends React.Component {
     return (
       <div className="bar-selection">
         Bar selection view
+        <Link to="/fede">Fede</Link>
+        <Link to="/ariel">Ariel</Link>
       </div>
     );
   }
