@@ -15,6 +15,7 @@ const HashtagFeed = ({ feedItems }) =>
         typeInteraction={feedItem.type_interaction}
         typeContent={feedItem.type_content}
         socialNetwork={feedItem.social_network}
+        likes={feedItem.likes}
       />
     )}
   </div>;
